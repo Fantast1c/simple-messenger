@@ -14,7 +14,12 @@ declare global {
   const customRef: typeof import('vue').customRef
   const defineAsyncComponent: typeof import('vue').defineAsyncComponent
   const defineComponent: typeof import('vue').defineComponent
+  const defineEmits: typeof import('vue').defineEmits
+  const defineExpose: typeof import('vue').defineExpose
+  const defineOptions: typeof import('vue').defineOptions
   const definePage: typeof import('vue-router/experimental').definePage
+  const defineProps: typeof import('vue').defineProps
+  const defineSlots: typeof import('vue').defineSlots
   const defineStore: typeof import('pinia').defineStore
   const effectScope: typeof import('vue').effectScope
   const getActivePinia: typeof import('pinia').getActivePinia
@@ -23,7 +28,6 @@ declare global {
   const getCurrentWatcher: typeof import('vue').getCurrentWatcher
   const h: typeof import('vue').h
   const inject: typeof import('vue').inject
-  const isDark: typeof import('./composables/dark').isDark
   const isProxy: typeof import('vue').isProxy
   const isReactive: typeof import('vue').isReactive
   const isReadonly: typeof import('vue').isReadonly
@@ -52,7 +56,6 @@ declare global {
   const onUnmounted: typeof import('vue').onUnmounted
   const onUpdated: typeof import('vue').onUpdated
   const onWatcherCleanup: typeof import('vue').onWatcherCleanup
-  const preferredDark: typeof import('./composables/dark').preferredDark
   const provide: typeof import('vue').provide
   const reactive: typeof import('vue').reactive
   const readonly: typeof import('vue').readonly
@@ -68,31 +71,40 @@ declare global {
   const toRef: typeof import('vue').toRef
   const toRefs: typeof import('vue').toRefs
   const toValue: typeof import('vue').toValue
-  const toggleDark: typeof import('./composables/dark').toggleDark
   const triggerRef: typeof import('vue').triggerRef
   const unref: typeof import('vue').unref
   const useAttrs: typeof import('vue').useAttrs
-  const useCounter: typeof import('./composables/useCounter').useCounter
-  const useCounterStore: typeof import('./stores/counter').useCounterStore
+  const useAutoReply: typeof import('./composables/useAutoReply').useAutoReply
+  const useAutoSave: typeof import('./composables/useLocalStorage').useAutoSave
+  const useChatScroll: typeof import('./composables/useChatScroll').useChatScroll
+  const useChatsStore: typeof import('./stores/chats').useChatsStore
   const useCssModule: typeof import('vue').useCssModule
   const useCssVars: typeof import('vue').useCssVars
   const useId: typeof import('vue').useId
+  const useLocalStorage: typeof import('./composables/useLocalStorage').useLocalStorage
+  const useMessagesStore: typeof import('./stores/messages').useMessagesStore
+  const useMobile: typeof import('./composables/useMobile').useMobile
   const useModel: typeof import('vue').useModel
+  const useOnlineStatus: typeof import('./composables/useOnlineStatus').useOnlineStatus
   const useRoute: typeof import('vue-router').useRoute
   const useRouter: typeof import('vue-router').useRouter
   const useSlots: typeof import('vue').useSlots
   const useTemplateRef: typeof import('vue').useTemplateRef
-  const useUserStore: typeof import('./stores/user').useUserStore
+  const useUsersStore: typeof import('./stores/users').useUsersStore
   const watch: typeof import('vue').watch
   const watchEffect: typeof import('vue').watchEffect
   const watchPostEffect: typeof import('vue').watchPostEffect
   const watchSyncEffect: typeof import('vue').watchSyncEffect
+  const withDefaults: typeof import('vue').withDefaults
 }
 // for type re-export
 declare global {
   // @ts-ignore
   export type { Component, Slot, Slots, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, ShallowRef, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue'
   import('vue')
+  // @ts-ignore
+  export type { ReplyCallback } from './composables/useAutoReply'
+  import('./composables/useAutoReply')
 }
 
 // for vue template auto import
@@ -108,7 +120,12 @@ declare module 'vue' {
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
+    readonly defineEmits: UnwrapRef<typeof import('vue')['defineEmits']>
+    readonly defineExpose: UnwrapRef<typeof import('vue')['defineExpose']>
+    readonly defineOptions: UnwrapRef<typeof import('vue')['defineOptions']>
     readonly definePage: UnwrapRef<typeof import('vue-router/experimental')['definePage']>
+    readonly defineProps: UnwrapRef<typeof import('vue')['defineProps']>
+    readonly defineSlots: UnwrapRef<typeof import('vue')['defineSlots']>
     readonly defineStore: UnwrapRef<typeof import('pinia')['defineStore']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
@@ -163,17 +180,26 @@ declare module 'vue' {
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useAutoReply: UnwrapRef<typeof import('./composables/useAutoReply')['useAutoReply']>
+    readonly useAutoSave: UnwrapRef<typeof import('./composables/useLocalStorage')['useAutoSave']>
+    readonly useChatScroll: UnwrapRef<typeof import('./composables/useChatScroll')['useChatScroll']>
+    readonly useChatsStore: UnwrapRef<typeof import('./stores/chats')['useChatsStore']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useId: UnwrapRef<typeof import('vue')['useId']>
+    readonly useLocalStorage: UnwrapRef<typeof import('./composables/useLocalStorage')['useLocalStorage']>
+    readonly useMessagesStore: UnwrapRef<typeof import('./stores/messages')['useMessagesStore']>
+    readonly useMobile: UnwrapRef<typeof import('./composables/useMobile')['useMobile']>
     readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useTemplateRef: UnwrapRef<typeof import('vue')['useTemplateRef']>
+    readonly useUsersStore: UnwrapRef<typeof import('./stores/users')['useUsersStore']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
     readonly watchSyncEffect: UnwrapRef<typeof import('vue')['watchSyncEffect']>
+    readonly withDefaults: UnwrapRef<typeof import('vue')['withDefaults']>
   }
 }

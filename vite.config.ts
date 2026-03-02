@@ -16,7 +16,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '',
+        additionalData: '@use "~/styles/variables.scss" as *;',
       },
     },
   },
@@ -34,6 +34,9 @@ export default defineConfig({
         'vue',
         'pinia',
         VueRouterAutoImports,
+        {
+          vue: ['defineProps', 'defineEmits', 'defineExpose', 'defineOptions', 'defineSlots', 'withDefaults'],
+        },
       ],
       dts: 'src/auto-imports.d.ts',
       dirs: [

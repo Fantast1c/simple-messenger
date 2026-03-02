@@ -1,0 +1,28 @@
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f8f9fa;
+  --color-surface-hover: #f1f3f4;
+  --color-border: #e5e7eb;
+  --color-border-strong: #d1d5db;
+  --color-text: #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-online: #22c55e;
+  --color-offline: #9ca3af;
+  --color-message-in: #ffffff;
+  --color-message-out: #eff6ff;
+}
+
+// Breakpoint
+$breakpoint-mobile: 768px;
+
+// High contrast mode adjustments
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: #000000;
+    --color-text: #000000;
+    --color-primary: #0000ee;
+  }
+}

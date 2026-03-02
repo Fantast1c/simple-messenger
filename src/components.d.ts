@@ -11,7 +11,16 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BackIcon: typeof import('./components/icons/BackIcon.vue')['default']
+    ChatList: typeof import('./components/ChatList.vue')['default']
+    ChatListItem: typeof import('./components/ChatListItem.vue')['default']
+    ChatWindow: typeof import('./components/ChatWindow.vue')['default']
+    MessageBubble: typeof import('./components/MessageBubble.vue')['default']
+    MessageInput: typeof import('./components/MessageInput.vue')['default']
+    MessengerLayout: typeof import('./components/MessengerLayout.vue')['default']
+    OnlineIndicator: typeof import('./components/OnlineIndicator.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SendIcon: typeof import('./components/icons/SendIcon.vue')['default']
   }
 }
